@@ -1,0 +1,35 @@
+{
+  "version": "1",
+  "name": "slack-bot-server",
+  "description": "Generic Slack bot server. Set BOT_NAME to select which bot persona to run.",
+  "type": "custom",
+  "build": {
+    "type": "node",
+    "version": "18"
+  },
+  "env": [
+    {
+      "name": "SLACK_BOT_TOKEN",
+      "description": "Slack Bot OAuth Token (xoxb-...)",
+      "required": true
+    },
+    {
+      "name": "SLACK_SIGNING_SECRET",
+      "description": "Slack App Signing Secret",
+      "required": true
+    },
+    {
+      "name": "GEMINI_API_KEY",
+      "description": "Google Gemini API Key",
+      "required": true
+    },
+    {
+      "name": "BOT_NAME",
+      "description": "Which bot config to load from /bots (e.g. 'claude-coach')",
+      "required": true
+    }
+  ],
+  "http": {
+    "port": 3000
+  }
+}

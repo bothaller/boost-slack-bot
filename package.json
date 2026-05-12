@@ -1,0 +1,20 @@
+{
+  "name": "slack-bot-server",
+  "version": "1.0.0",
+  "description": "Generic Slack bot server powered by Gemini. Bot personas are defined in /bots.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@slack/bolt": "^3.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
