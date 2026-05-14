@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "@slack/bolt": "^3.21.1"
+    "@slack/bolt": "^3.21.1",
+    "dotenv": "^17.4.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.0"

@@ -1,12 +1,13 @@
 const { App, ExpressReceiver } = require("@slack/bolt");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+require("dotenv").config();
 const bots = require("./bots");
 
 // ─── Config ───────────────────────────────────────────────────────────────────
-const SLACK_BOT_TOKEN = "process.env.SLACK_BOT_TOKEN";
-const SLACK_SIGNING_SECRET = "process.env.SLACK_SIGNING_SECRET";
-const GEMINI_API_KEY = "process.env.GEMINI_API_KEY";
-const BOT_NAME = "process.env.BOT_NAME";
+const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
+const SLACK_SIGNING_SECRET = process.env.SLACK_SIGNING_SECRET;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const BOT_NAME = process.env.BOT_NAME;
 const PORT = 3000;
 
 // ─── Validate ─────────────────────────────────────────────────────────────────
@@ -111,6 +112,9 @@ app.event("app_mention", async ({ event, client, say }) => {
     });
   }
 });
+
+// ─── Health check ─────────────────────────────────────────────────────────────
+receiver.router.get("/health", (req, res) => res.send("ok"));
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 (async () => {
